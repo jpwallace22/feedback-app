@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #202142;
+  font-family: "Poppins", sans-serif;
+  background-color: #110e2d;
   color: #fff;
   line-height: 1.6;
 }
@@ -36,7 +36,7 @@ header {
 .card {
   background-color: #fff;
   color: #333;
-  border-radius: 15px;
+  border-radius: 8px;
   padding: 40px 50px;
   margin: 20px 0;
   position: relative;
@@ -89,16 +89,16 @@ header {
 
 .rating li:hover,
 .num-display {
-  background: #ff6a95;
+  background: #007173;
   color: #fff;
 }
 
-[type='radio'] {
+[type="radio"] {
   opacity: 0;
 }
 
-[type='radio']:checked ~ label {
-  background: #ff6a95;
+[type="radio"]:checked ~ label {
+  background: #007173;
   color: #fff;
 }
 
@@ -130,7 +130,7 @@ input:focus {
 .num-display {
   position: absolute;
   top: -10px;
-  left: -10px;
+  left: -20px;
 }
 
 .close,
@@ -158,11 +158,11 @@ input:focus {
 }
 
 .btn-primary {
-  background-color: #202142;
+  background-color: #40367a;
 }
 
 .btn-secondary {
-  background: #ff6a95;
+  background: #007173;
 }
 
 .btn:hover {
@@ -184,7 +184,7 @@ input:focus {
 .message {
   padding-top: 10px;
   text-align: center;
-  color: rebeccapurple;
+  color: #40367a;
 }
 
 .about-link {
@@ -200,7 +200,7 @@ input:focus {
 }
 
 .about-link a:hover {
-  color: #ff6a95;
+  color: #007173;
 }
 
 .about h1 {

@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { feedbackData } from "../data/FeedbackData";
 
 const FeedbackContext = createContext();
 
@@ -16,37 +17,38 @@ export const FeedbackProvider = ({ children }) => {
 
   //fetch feedback
   const fetchFeedback = async () => {
-    const response = await fetch("/feedback?_sort=id&_order=desc");
-    const data = await response.json();
+    // const response = await fetch("/feedback?_sort=id&_order=desc");
+    // const data = await response.json();
 
-    setFeedback(data);
+    setFeedback(feedbackData);
     setIsLoading(false);
   };
 
   //delete feedback
   const deleteFeedback = async (id) => {
-       if (
+    if (
       window.confirm(
         "Are you sure you want to delete? There is no going back from this!"
       )
     ) {
-      await fetch(`/feedback/${id}`, { method: 'DELETE' })
+      await fetch(`/feedback/${id}`, { method: "DELETE" });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
   //add feedback
   const addFeedback = async (newFeedback) => {
-    const response = await fetch("/feedback", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newFeedback),
-    });
+    // const response = await fetch("/feedback", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(newFeedback),
+    // });
 
-    const data = await response.json();
-    setFeedback([data, ...feedback]);
+    // const data = await response.json();
+    // setFeedback([data, ...feedback]);
+    setFeedback([newFeedback, ...feedback]);
   };
 
   //edit feedback
@@ -58,17 +60,16 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   //update feedback item
-  const updateFeedback =  async (id, updItem) => {
-
+  const updateFeedback = async (id, updItem) => {
     const response = await fetch(`/feedback/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(updItem)
-    })
+      body: JSON.stringify(updItem),
+    });
 
-    const data = response.json()
+    const data = response.json();
 
     setFeedback(
       feedback.map((item) => (item.id === id ? { ...data, ...updItem } : item))
